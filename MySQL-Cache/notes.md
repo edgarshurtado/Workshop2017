@@ -1,6 +1,6 @@
 # Knowing if the cache is enabled
 
-1. Run `mysql> show variables like 'have_query_cache'`
+1. Run `show variables like 'have_query_cache'`
 
 The return has to be:
 
@@ -12,7 +12,7 @@ The return has to be:
 +------------------+-------+
 ```
 
-2. Run `mysql> show variables like 'query_cache'`
+2. Run `show variables like 'query_cache%'`
 
 The return will be:
 
@@ -69,7 +69,7 @@ Set the cache for ignoring the comments by setting the variable
 
 The following sentence retrieves all the cache related setting variables:
 
-`show variables like 'query_cache%`
+`show variables like 'query_cache%'`
 
 Example result:
 
@@ -137,7 +137,7 @@ SELECT SQL_NO_CACHE id, name FROM customer;
 For getting info about usage of cache we can execute:
 
 ```sql
-SHOW STATUS LIKE 'Qcache'
+SHOW STATUS LIKE 'Qcache%'
 ```
 
 The result will be as follows:
