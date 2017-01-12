@@ -11,7 +11,7 @@ $Key = new RSA();
 
 $Key->loadKey(file_get_contents("/route/to/certificate"));
 
-if(!$sftp->login("madison", $Key)){
+if(!$sftp->login("user", $Key)){
     echo "error!";
 }
 
