@@ -2,7 +2,7 @@ PHP is a blocking language, so there aren't async calls. However if you
 don't care about the server response there are 3 possible approaches.
 Which to chose it's up of your performance needs and system config.:
 
-* fsockopen
+* [fsockopen](http://php.net/manual/en/function.fsockopen.php)
 
 ```php
 <?php
