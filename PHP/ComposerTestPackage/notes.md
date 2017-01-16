@@ -47,7 +47,11 @@ in a composer.json file:
 }
 ```
 
+> As long as you are developing it's usually seen the package as version `dev-master`. Once you
+start to make versions, you can point out the version tag directly. This is specified in the 
+composer docs and blogs listed below. Not tested by me though.
 
 
-* [More Info](https://knpuniversity.com/screencast/question-answer-day/create-composer-package)
-* [see also](https://getcomposer.org/doc/04-schema.md#autoload)
+* [Create Composer Package](https://knpuniversity.com/screencast/question-answer-day/create-composer-package)
+* [Autoload. Composer Docs](https://getcomposer.org/doc/04-schema.md#autoload)
+* [Creating your first Composer Packagist Package](http://blog.jgrossi.com/2013/creating-your-first-composer-packagist-package/)
