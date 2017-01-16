@@ -5,6 +5,8 @@ class HammingMethodology:
     def __init__(self, pattern, secuence):
         self.pattern = pattern
         self.secuence = secuence
+        self.secuenceLen = len(secuence)
+        self.patternLen = len(pattern)
 
     def hammingDistance(self, string1, string2):
         if(len(string1) != len(string2)):
@@ -28,18 +30,42 @@ class HammingMethodology:
         patternDistance = len(self.pattern)
         return self.hammingCoincidence(patternDistance, hm)
 
+    def getCoincidenceArray(self):
+        coincidenceArray = []
+        lastCheckablePosition = self.secuenceLen - self.patternLen
+
+        for windowStartPosition in range(lastCheckablePosition):
+            windowStopPosition = windowStartPosition + self.patternLen
+
+            if(windowStopPosition < self.secuenceLen):
+                secuenceWindow = self.secuence[windowStartPosition:windowStopPosition]
+
+                hd = self.hammingDistance(self.pattern, secuenceWindow)
+                hc = self.hammingCoincidence(self.patternLen, hd)
+
+                coincidenceArray.append(hc)
+
+        return coincidenceArray;
+
+
+
+def loadSinglePattern(fileRoute):
+    f = open(fileRoute, "r")
+    f.readline()
+
+    pattern = ""
+
+    for line in f:
+        pattern += line.rstrip("\n")
+
+    return pattern
+
 
 if __name__ == '__main__':
     string1 = 'ACGGACACAGA'
-    string2 = 'ACAGACCAAAT'
+    string2 = 'ACAGACCAAATACA'
 
     hObject = HammingMethodology(string1, string2)
 
-    hDistance = hObject.getHammingDistance()
-    hCoincidence = hObject.getHammingCoincidence()
-
-    print("Comparition between: " + string1 + " " + string2)
-
-    print("Hamming distance: " + str(hDistance))
-    print("Fragment coincidence: " + str(hCoincidence))
+    print(hObject.getCoincidenceArray());
 
