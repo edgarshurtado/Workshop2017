@@ -19,6 +19,12 @@ class HammingMethodology:
 
         return hammingAcumulator
 
+    def getPatternLen(self):
+        return self.patternLen
+
+    def getSecuenceLen(self):
+        return self.secuenceLen
+
     def hammingCoincidence(self, stringLength, hammingDistance):
         return (stringLength - hammingDistance)/stringLength
 
@@ -62,8 +68,9 @@ def loadSinglePattern(fileRoute):
 
 
 if __name__ == '__main__':
-    string1 = 'ACGGACACAGA'
-    string2 = 'ACAGACCAAATACA'
+
+    string1 = loadSinglePattern("patron.txt")
+    string2 = loadSinglePattern("genomafragment.txt")
 
     hObject = HammingMethodology(string1, string2)
 
