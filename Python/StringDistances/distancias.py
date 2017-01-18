@@ -49,7 +49,8 @@ class HammingMethodology:
                 hd = self.hammingDistance(self.pattern, secuenceWindow)
                 hc = self.hammingCoincidence(self.patternLen, hd)
 
-                coincidenceArray.append(hc)
+                if hc > 0.3:
+                    coincidenceArray.append({"position": windowStartPosition, "coincidence":hc})
 
         return coincidenceArray;
 
