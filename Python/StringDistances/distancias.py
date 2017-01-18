@@ -8,6 +8,9 @@ class HammingMethodology:
         self.secuenceLen = len(secuence)
         self.patternLen = len(pattern)
 
+    '''
+    Calculates the hamming distance of 2 given strings
+    '''
     def hammingDistance(self, string1, string2):
         if(len(string1) != len(string2)):
             raise Exception("The strings have to be of the same size")
@@ -19,22 +22,15 @@ class HammingMethodology:
 
         return hammingAcumulator
 
-    def getPatternLen(self):
-        return self.patternLen
-
-    def getSecuenceLen(self):
-        return self.secuenceLen
-
+    '''
+    Calculates the % of coincidence acording to a given string length and a
+    Hamming distance.
+    The calculation is due substracting the hamming distance to the string
+    length. This is because a hamming distance of 0 means 100% coincidence and
+    a hamming distance equal than the length of the string means 0% coincidence
+    '''
     def hammingCoincidence(self, stringLength, hammingDistance):
         return (stringLength - hammingDistance)/stringLength
-
-    def getHammingDistance(self):
-        return self.hammingDistance(self.pattern, self.secuence)
-
-    def getHammingCoincidence(self):
-        hm = self.getHammingDistance()
-        patternDistance = len(self.pattern)
-        return self.hammingCoincidence(patternDistance, hm)
 
     def getCoincidenceArray(self):
         coincidenceArray = []
@@ -53,6 +49,21 @@ class HammingMethodology:
                     coincidenceArray.append({"position": windowStartPosition, "coincidence":hc})
 
         return coincidenceArray;
+
+    def getPatternLen(self):
+        return self.patternLen
+
+    def getSecuenceLen(self):
+        return self.secuenceLen
+
+    def getHammingDistance(self):
+        return self.hammingDistance(self.pattern, self.secuence)
+
+    def getHammingCoincidence(self):
+        hm = self.getHammingDistance()
+        patternDistance = len(self.pattern)
+        return self.hammingCoincidence(patternDistance, hm)
+
 
 
 
