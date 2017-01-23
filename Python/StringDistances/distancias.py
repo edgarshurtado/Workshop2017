@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 
 class HammingMethodology:
     def __init__(self, pattern, secuence):
@@ -49,6 +50,10 @@ class HammingMethodology:
                 if hc > self.threshold:
                     coincidenceArray.append(windowStartPosition)
 
+            sys.stdout.write("\rProcessing from %d to %d position" % (windowStartPosition, windowStopPosition))
+            sys.stdout.flush()
+
+        print("")
 
         return coincidenceArray;
 
