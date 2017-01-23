@@ -36,10 +36,10 @@ class HammingMethodology:
         coincidenceArray = []
         lastCheckablePosition = self.secuenceLen - self.patternLen
 
-        for windowStartPosition in range(lastCheckablePosition):
+        for windowStartPosition in range(lastStartPosition + 1):
             windowStopPosition = windowStartPosition + self.patternLen
 
-            if(windowStopPosition < self.secuenceLen):
+            if(windowStopPosition <= self.secuenceLen):
                 secuenceWindow = self.secuence[windowStartPosition:windowStopPosition]
 
                 hd = self.hammingDistance(self.pattern, secuenceWindow)
