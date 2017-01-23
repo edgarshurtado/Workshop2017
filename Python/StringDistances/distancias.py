@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+from multiprocessing import Process
 
 class HammingMethodology:
     def __init__(self, pattern, secuence):
