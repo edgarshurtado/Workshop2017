@@ -153,7 +153,7 @@ if __name__ == '__main__':
     while not(exit):
         method = input("Wich method do you want to use? Lineal or Multiprocess?[l/m]")
         if(method == "l"):
-            hObject.getCoincidenceArray()
+            print(hObject.getCoincidenceArray())
             exit = True
         elif(method == "m"):
             nThreads = input("How many threads do you want?")
