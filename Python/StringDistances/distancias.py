@@ -7,6 +7,7 @@ class HammingMethodology:
         self.secuence = secuence
         self.secuenceLen = len(secuence)
         self.patternLen = len(pattern)
+        self.threshold = 0.9
 
     '''
     Calculates the hamming distance of 2 given strings
@@ -45,8 +46,9 @@ class HammingMethodology:
                 hd = self.hammingDistance(self.pattern, secuenceWindow)
                 hc = self.hammingCoincidence(self.patternLen, hd)
 
-                if hc > 0.3:
-                    coincidenceArray.append({"position": windowStartPosition, "coincidence":hc})
+                if hc > self.threshold:
+                    coincidenceArray.append(windowStartPosition)
+
 
         return coincidenceArray;
 
