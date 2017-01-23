@@ -15,3 +15,16 @@ curl_setopt($curlChannel, CURLOPT_POSTFIELDS , $jsonString);
 curl_exec($curlChannel);
 curl_close($curlChannel);
 ```
+
+* How to send a DELETE request
+
+```php
+
+$curlChannel = curl_init();
+curl_setopt($curlChannel, CURLOPT_URL , $url);
+curl_setopt($curlChannel, CURLOPT_CUSTOMREQUEST, "DELETE");
+
+curl_exec($curlChannel);
+curl_close($curlChannel);
+```
+[resouce](http://stackoverflow.com/a/17935536)
