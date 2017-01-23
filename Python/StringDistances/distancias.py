@@ -116,10 +116,25 @@ def loadGenome(fileRoute):
 
 if __name__ == '__main__':
 
-    string1 = loadSinglePattern("patron.txt")
-    string2 = loadSinglePattern("genomafragment.txt")
+    print("loading patern...")
+    pattern = loadGenome("patron.txt")
+    print("loading genome...")
+    genome = loadGenome("genomafragment.txt")
 
-    hObject = HammingMethodology(string1, string2)
+    hObject = HammingMethodology(pattern, genome)
 
-    print(hObject.getCoincidenceArray());
+    print("Secuence length: %d" % hObject.getSecuenceLen())
+
+    exit = False
+    while not(exit):
+        method = input("Wich method do you want to use? Lineal or Multiprocess?[l/m]")
+        if(method == "l"):
+            hObject.getCoincidenceArray()
+            exit = True
+        elif(method == "m"):
+            nThreads = input("How many threads do you want?")
+            hObject.getCoincidenceArrayMultiprocess(int(nThreads));
+            exit = True
+        else:
+            print("Unknown option, please type 'l' or 'm'")
 
