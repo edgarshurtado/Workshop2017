@@ -35,22 +35,34 @@ class HammingMethodology:
     def hammingCoincidence(self, stringLength, hammingDistance):
         return (stringLength - hammingDistance)/stringLength
 
+
     def getCoincidenceArray(self):
         coincidenceArray = []
         lastStartPosition = self.secuenceLen - self.patternLen
 
+        '''
+        range = lastStartPosition + 1 because range goes from 0 to the given
+        number without inclusing it
+
+        This loop moves the focus of the code to a portion of the genome with
+        the same length as the pattern
+        '''
         for windowStartPosition in range(lastStartPosition + 1):
             windowStopPosition = windowStartPosition + self.patternLen
 
+            # Avoid access to an out of bounds index
             if(windowStopPosition <= self.secuenceLen):
                 secuenceWindow = self.secuence[windowStartPosition:windowStopPosition]
 
+                # Calculation of the Hamming Distance and Coincidence
                 hd = self.hammingDistance(self.pattern, secuenceWindow)
                 hc = self.hammingCoincidence(self.patternLen, hd)
 
+                # Append to the array if the coincidence is greater than the threshold
                 if hc > self.threshold:
                     coincidenceArray.append(windowStartPosition)
 
+            # User feedback
             sys.stdout.write("\rProcessing from %d to %d position" % (windowStartPosition, windowStopPosition))
             sys.stdout.flush()
 
@@ -58,6 +70,14 @@ class HammingMethodology:
 
         return coincidenceArray;
 
+    '''
+    Same as getCoincidenceArray but the focus in the genome is not linear but
+    ignoring some positions.
+
+    start is the starting position in the genome array
+
+    jump is the number of positions to jump on each iteration
+    '''
     def getCoincidenceArrayWithJumps(self, start, jump):
         coincidenceArray = []
         lastStartPosition = self.secuenceLen - self.patternLen
@@ -77,6 +97,9 @@ class HammingMethodology:
         print(coincidenceArray)
 
 
+    '''
+    Function to execute getCoincidenceArrayWithJumps in paralel using processes
+    '''
     def getCoincidenceArrayMultiprocess(self, nProcesses):
         processList = []
 
@@ -107,6 +130,7 @@ def loadGenome(fileRoute):
     pattern = ""
 
     for line in f:
+        # Avoid headers
         if line.startswith(">"):
             continue
         pattern += line.rstrip("\n")
