@@ -67,15 +67,13 @@ class HammingMethodology:
         return self.hammingCoincidence(patternDistance, hm)
 
 
-
-
-def loadSinglePattern(fileRoute):
+def loadGenome(fileRoute):
     f = open(fileRoute, "r")
-    f.readline()
-
     pattern = ""
 
     for line in f:
+        if line.startswith(">"):
+            continue
         pattern += line.rstrip("\n")
 
     return pattern
