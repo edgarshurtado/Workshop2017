@@ -37,7 +37,7 @@ class HammingMethodology:
 
     def getCoincidenceArray(self):
         coincidenceArray = []
-        lastCheckablePosition = self.secuenceLen - self.patternLen
+        lastStartPosition = self.secuenceLen - self.patternLen
 
         for windowStartPosition in range(lastStartPosition + 1):
             windowStopPosition = windowStartPosition + self.patternLen
