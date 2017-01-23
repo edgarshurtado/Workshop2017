@@ -52,6 +52,35 @@ class HammingMethodology:
 
         return coincidenceArray;
 
+    def getCoincidenceArrayWithJumps(self, start, jump):
+        coincidenceArray = []
+        lastStartPosition = self.secuenceLen - self.patternLen
+
+        for windowStartPosition in range(start, lastStartPosition + 1, jump):
+            windowStopPosition = windowStartPosition + self.patternLen
+
+            if(windowStopPosition <= self.secuenceLen):
+                secuenceWindow = self.secuence[windowStartPosition:windowStopPosition]
+
+                hd = self.hammingDistance(self.pattern, secuenceWindow)
+                hc = self.hammingCoincidence(self.patternLen, hd)
+
+                if hc > self.threshold:
+                    coincidenceArray.append(windowStartPosition)
+
+        print(coincidenceArray)
+
+
+    def getCoincidenceArrayMultiprocess(self, nProcesses):
+        processList = []
+
+        for i in range(nProcesses):
+            processList.append(Process(target=self.getCoincidenceArrayWithJumps, args=(i, nProcesses)))
+            processList[i].start()
+
+        for process in processList:
+            process.join()
+
     def getPatternLen(self):
         return self.patternLen
 
