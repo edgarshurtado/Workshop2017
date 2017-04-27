@@ -1,0 +1,14 @@
+{
+    "name": "rumil/php_telgram_api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Edgar S. Hurtado",
+            "email": "edsanhu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "longman/telegram-bot": "*"
+    }
+}
