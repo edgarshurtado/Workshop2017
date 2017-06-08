@@ -66,7 +66,9 @@ SVG > PNG > JPEG
 
 * ImageMagick
 * Grunt
+    - [Getting started with grunt](https://gruntjs.com/getting-started)
 * ImageOptim (Mac only)
+    - [installation](http://cactuslab.com/imagemagick/)
 * Trimage - Similar to ImageOptim (Windows, Mac, Linux)
 
 The lesson 14 has several links to this resources (link to lesson)[https://classroom.udacity.com/courses/ud882/lessons/3520939843/concepts/35820386070923]

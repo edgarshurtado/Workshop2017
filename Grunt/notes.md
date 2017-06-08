@@ -16,3 +16,10 @@ npm install grunt
 
 In grunt, by wrapping with `<%= %>` a variable placeholder gets interpolated. 
 (see the example in Gruntfile)
+
+## Grunt commands
+
+```bash
+grunt # Run default commands
+grunt --help # Shows the available grunt commands
+```
