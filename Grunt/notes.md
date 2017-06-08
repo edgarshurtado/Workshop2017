@@ -11,3 +11,8 @@ npm install -g gulp-cli
 npm init
 npm install grunt
 ```
+
+## Variable references in strings
+
+In grunt, by wrapping with `<%= %>` a variable placeholder gets interpolated. 
+(see the example in Gruntfile)
