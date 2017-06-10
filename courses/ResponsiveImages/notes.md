@@ -80,4 +80,19 @@ Using [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insight
 
 There's also a pluggin for grunt -> [grunt-pagespeed](https://www.npmjs.com/package/grunt-pagespeed).
 
+## Cover and contain
 
+* *COVER* : The image is sized so that it is as large as possible while still
+being completely cisible inside its container
+* *CONTAIN* The image is sized so that it is as small as possible while still
+completely filling its container.
+
+## Unicode characters
+
+You have to set your webpage to use UTF-8
+
+```html
+<meta charset=utf-8>
+```
+
+ * [List of unicode characters](https://unicode-table.com/en/)
