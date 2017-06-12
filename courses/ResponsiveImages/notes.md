@@ -96,3 +96,24 @@ You have to set your webpage to use UTF-8
 ```
 
  * [List of unicode characters](https://unicode-table.com/en/)
+
+ ## Icon fonts
+
+ * [Zocial](http://zocial.smcllns.com/)
+ * [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+ * [We Love Icon Fonts!](http://weloveiconfonts.com/)
+    - List of available icon fonts.
+ * [Icon fontos on CSS-tricks](https://css-tricks.com/examples/IconFont/)
+ * [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+    - Stands for *Accessible Rich Internet Applications*
+    - Set of attributes for markup that screen-readers can understand.
+    - Some attributes examples: **aria-hidden**, **role**
+
+## SVG and data URIs
+
+For reducing the number of requests to the server, we can add to our markup
+*inline svg* and/or *data uri*(a.k.a: img encoded in base64)
+
+Can be inlined in css.
+
+Interesting link: [SVG optimiser](http://petercollingridge.appspot.com/svg-optimiser)
