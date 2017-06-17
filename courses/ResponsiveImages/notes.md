@@ -180,3 +180,45 @@ Suppose a smart phone has a screen with a physical pixel size of 180 pixels per 
 So in summary the device pixel ratio is the ratio between the pixel density
 a device should have ideally according to the distance is held and the actual
 pixel density of the device.
+
+## picture tag.
+
+Allows to set severa img sources that will be displayed accordingly to the set
+of rules we fix. Example with image type:
+
+The img that will be rendered is the one the browser supports.
+```html
+<picture>
+    <source srcset="kittens.webp" type="image/webp">
+    <source srcset="kittens.jpeg" type="image/jpeg">
+    <img src="kittens.jpg" alt="Two kittens">
+</picture>
+```
+
+Example with media-queries. Large and medium are different crops of the same
+image. Cropping images to make it adjust better depending of the screen size
+beside the srcset attribute is called *art direction*
+
+```html
+<picture>
+      <source 
+        srcset="
+            images/cockatoos-large_2x.jpg 2x, 
+            images/cockatoos-large_1x.jpg 1x" 
+        media="(min-width: 1000px)" \>
+
+      <source 
+        srcset="
+            images/cockatoos-medium_2x.jpg 2x, 
+            images/cockatoos-medium_1x.jpg 1x" 
+        media="(min-width: 500px)" \>
+
+      <img src="images/cockatoos-large_1x.jpg" alt="something...">
+</picture>
+<img src="" alt="">
+</picture>
+```
+
+> Note that the <img> tag is mandatory, actually it'll be the placeholder that
+the browser will use for rendering the image. Moreover, if the browser doesn't
+supports <picture> the <img> tag will be processed as fallback
