@@ -117,3 +117,66 @@ For reducing the number of requests to the server, we can add to our markup
 Can be inlined in css.
 
 Interesting link: [SVG optimiser](http://petercollingridge.appspot.com/svg-optimiser)
+
+## srcset and sizes attributes
+
+Allows the browser in the html which image has to download by specifing in advance
+the information that a browser doesn't know. It is image sizes and display
+relative of the viewport.
+
+```html
+<!-- 
+According to the resolution of the screen. 1x and 2x refers to the pixel density
+of the screen.
+
+We keep adding the `src` default attribute as a fallback in case the browser
+doesn't have support for srcset
+-->
+<img src="wallaby_1x.jpg" srcset="wallaby_1x.jpg 1x, wallaby_2x.jpg 2x" alt='Wallaby'>
+
+<!-- 
+Width width ( the `w` represents the image size not the viewport width, so
+in the example small.jpg is 500px wide and large 1000 px )
+
+The sizes attribute allows us to set media-queries to tell the browser how
+the image will be displayed in the viewport (this has to match to the actual
+media-queries for the image in our css to work propperly)
+-->
+<img src="small.jpg" 
+    srcset="small.jpg 500w, large.jpg 1000w" 
+    sizes="(min-width: 36em) 33.3vw,
+           100vw"
+    alt='Wallaby'>
+
+```
+
+We can check the resolution of our screen by typing in the devtool:
+`window.devicePixelRatio`
+
+Notice we cant mix `w` and `x` in the srcset
+
+A great article where this is explained: [Srcset and sizes](http://ericportis.com/posts/2014/srcset-sizes/)
+
+For improve browser support, there's a [polyfill](https://github.com/scottjehl/picturefill)
+
+### Calculating the device pixel ratio
+
+Suppose a smart phone has a screen with a physical pixel size of 180 pixels per inch (ppi). Calculating the device pixel ratio takes three steps:
+
+    1. Compare the actual distance at which the device is held to the distance for the reference pixel.
+
+     Per the spec, we know that at 28 inches, the ideal is 96 pixels per inch. However, since it's a smart phone, people hold the device closer to their faces than they hold a laptop. Let's estimate that distance to be 18 inches.
+
+    2. Multiply the distance ratio against the standard density (96ppi) to get the ideal pixel density for the given distance.
+
+    idealPixelDensity = (28/18) * 96 = 150 pixels per inch (approximately)
+
+    3. Take the ratio of the physical pixel density to the ideal pixel density to get the device pixel ratio.
+
+    devicePixelRatio = 180/150 = 1.2
+
+[source](https://www.html5rocks.com/en/mobile/high-dpi/)
+
+So in summary the device pixel ratio is the ratio between the pixel density
+a device should have ideally according to the distance is held and the actual
+pixel density of the device.
