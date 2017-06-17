@@ -1,0 +1,20 @@
+{
+  "name": "responsive-images-quiz",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Edgar S. Hurtado <edsanhu@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/edgarshurtado/Workshop2017",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "picturefill": "^3.0.3"
+  }
+}
