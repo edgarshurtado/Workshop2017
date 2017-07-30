@@ -21,7 +21,36 @@ ECMAScript releases:
 
 [Kangax’ ES6 compatibility table](http://kangax.github.io/compat-table/es6/)
 
-# 2. One JavaScript: Avoiding versioning en ECMAScript6
+# 2. Chapter skiped
+
+# 3. One JavaScript: Avoiding versioning en ECMAScript6
+
+JavaScript follows the 'One JavaScript' principle wich means that no breaking 
+changes will be added and it will be always backwards-compatible.
+
+The reasons behind it:
+* Allows browser engines to update allowing old code to still run. 
+* Better transition for programmers to start using new features.
+
+What One JavaScript can't do:
+* Delete functionalities
+* Change functionalities
+* Remove some quirks of the language
+
+What One JavaScript can do:
+* Introduce new features
+* Improve functionalities
+
+Strict mode was introduced for cleaning up the language, however it meant having
+2 versions of JavaScript (Strict-mode code will break in sloopy-mode and viceversa).
+Thus, for returning to the 'One JavaScript' philosophy, the development of 
+ES6 has been forced to add the new functionalities to both strict mode and 
+sloppy mode.
+
+# 4. Core ES6 features
+
+This chapter lists all the new core features of the language comparing they with
+how would we get this done in ES5. As a sumarize: ES6 syntactic sugar is great =D.
 
 # New vocabulary
 * trademark -> marca registrada
@@ -31,3 +60,10 @@ ECMAScript releases:
 * w.r.t. -> with respect to/ with regard to/ with reference to
 * pitfall -> obstáculo/dificultad/inconveniente
 * bloated -> hinchado/inflado
+* brittle -> frágil/transitorio
+* clutter -> follón/lío
+* hassle -> dificultad/confusión
+* quirk -> peculiaridad/singularidad
+* clumsy -> torpe/desastrado/patoso
+* coerce -> obligar/forzar
+
