@@ -52,6 +52,160 @@ sloppy mode.
 This chapter lists all the new core features of the language comparing they with
 how would we get this done in ES5. As a sumarize: ES6 syntactic sugar is great =D.
 
+# 5. New number and Math features
+
+## Number.toString(radix)
+
+```js
+255..toString(16) // 'ff'
+4..toString(2) // '100'
+8..toString(8) // '10'
+```
+
+The double dots are necessary so that the dot for property access isn't confused with a decimal dot.
+
+> Note: Even though this is not a ES6 feature, I found it interesting
+
+## Number.parseInt()
+
+Supports hexadecimal number literals (but not for binary or octal literals)
+
+## Number.isFinite & Number.isNaN
+
+Do not coerce their parameters to be numbers whereas the global functions do
+
+## Number.EPSILON
+
+Constant used for float comparitions with error margin (the problem of sum up 0.1 + 0.2)
+
+The number represents a reasonable margin of error for comparing float point numbers.
+
+The new way of comparing float numbers is:
+
+```js
+function epsEqu(x, y) {
+    return Math.abs(x - y) < Number.EPSILON;
+}
+console.log(epsEqu(0.1+0.2, 0.3)); // true
+```
+
+## Safe integers
+
+Due to how mathmatical integers are represented once we riched -2^53 or 2^53, JavaScript can only represent even numbers.
+
+```
+> Math.pow(2, 53)
+9007199254740992
+
+> 9007199254740992
+9007199254740992
+> 9007199254740993
+9007199254740992
+> 9007199254740994
+9007199254740994
+> 9007199254740995
+9007199254740996
+> 9007199254740996
+9007199254740996
+> 9007199254740997
+9007199254740996
+```
+
+JavaScript now provides ways of knowing if we reached the limit:
+
+* Number.isSafeInteger(number)
+* Number.MIN_SAFE_INTEGER
+* Number.MAX_SAFE_INTEGER
+
+## JavaScript 53 bit range
+
+Javascript has only precision for 53 bits integers which is a problem when 64 bit integer are needed. The only way to work this around is to use a library such as decimal.js
+
+# New string features
+
+## String templates
+
+Allows to:
+* Use variables in strings
+```js
+const first = 'Jane';
+const last = 'Doe';
+console.log(`Hello ${first} ${last}!`);
+    // Hello Jane Doe!
+```
+
+* Multilines strings
+```js
+const multiLine = `
+This is
+a string
+with multiple
+lines`;
+```
+
+* Raw string (neither special chars or escapes are interpreted)
+```js
+const str = String.raw`Not a newline: \n`;
+console.log(str === 'Not a newline: \\n'); // true
+```
+
+## Checking for inclusion
+
+```js
+'hello'.startsWith('hell')
+// true
+
+'hello'.endsWith('ello')
+// true
+
+'hello'.includes('ell')
+// true
+```
+
+## Repeat strings
+
+```js
+'doo '.repeat(3) // 'doo doo doo '
+```
+
+# 7. [Symbols](http://exploringjs.com/es6/ch_symbols.html)
+
+New js primitive.
+
+Build with the Symbol factory `Symbol()`. You can pass a string as a tag `Symbol("hello")`.
+
+Symbols are unique so: `Symbol() !== Symbol()`
+
+One of their great uses is for avoiding method clashes since each symbol is unique
+
+```
+const _counter = Symbol('counter');
+const _action = Symbol('action');
+class Countdown {
+    constructor(counter, action) {
+        this[_counter] = counter;
+        this[_action] = action;
+    }
+    dec() {
+        let counter = this[_counter];
+        if (counter < 1) return;
+        counter--;
+        this[_counter] = counter;
+        if (counter === 0) {
+            this[_action]();
+        }
+    }
+}
+```
+
+You can coerce a Symbol to a string representation: `String(Symbol('hello')) //'hello'`
+
+There are several well-known symbols such as `Symbol.iterator`. Adding this symbol as key property for a method, makes the 
+object iterable through for-of (it's the method that is going to be called).
+
+# 8. Template Literals
+
+
 # New vocabulary
 * trademark -> marca registrada
 * inception -> comienzo
@@ -66,4 +220,4 @@ how would we get this done in ES5. As a sumarize: ES6 syntactic sugar is great =
 * quirk -> peculiaridad/singularidad
 * clumsy -> torpe/desastrado/patoso
 * coerce -> obligar/forzar
-
+* clash -> chocar/colisionar
