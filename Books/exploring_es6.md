@@ -204,7 +204,36 @@ There are several well-known symbols such as `Symbol.iterator`. Adding this symb
 object iterable through for-of (it's the method that is going to be called).
 
 # 8. Template Literals
+There are template literals a tagged template
 
+```js
+const author = 'Edgar'
+console.log(`${author} made this string`) // Edgar made this string
+```
+
+Tagged templates are function which are always invoked with a template string:
+
+```
+function tagFunction(templateStrings, ...substs)
+```
+
+The way of calling it: 
+
+```
+const author = 'Edgar'
+tagFuntion`This is a tagged literal made by ${author}
+```
+
+The tag function will recieve as parameter (["This is a tagged literal made by", ""], 'Edgar'). Then the function can have any implementation and return whatever
+
+> There's always 1 more template string than substitutions
+
+# 9. [Variables and scoping](http://exploringjs.com/es6/ch_variables.html)
+ES6 changhes with `let` and `const` its function scope to block scope for variables.
+
+`let` works as var but with the block scope
+
+`const` has other restrictions. Has to be inizialized right with its definition. Its value can't change afterwards.
 
 # New vocabulary
 * trademark -> marca registrada
