@@ -37,7 +37,29 @@ Each layer has two elements:
 1. The Code (here we find the adapters (implementations), and other business logic)
 2. The Boundary (here we find the ports (interfaces) that define how outside layers can communicate to the current layer)
 
+### Domain Layer
 
+Contains the business logic and defines hot the layer outside of it can interact with it.
+
+In this layer we encounter behaviours and constraints of our aplications. Besides this Core Domain, we find also supporting domain logic such as Domain Events and use-cases(definitions of what actions can be taken on our applications)
+
+### Application Layer
+
+Handles the entities fount ins the Domain Layer . It's also the glue between the domain layer and the application layer.
+
+### Framework Layer
+
+Contains code that your application uses but it is not actually your application.
+
+Alaso adapts requests from the outside to our Application Layer (like user input and http requests)
+
+## Comunication between layers
+
+Each layer is responsible for the comunication with the next outside layer. This is done through interfaces.
+
+The interface is the port, and the implementation is de adapter of the port
+
+So each layer will define an interface on how it will use the outter layer
 
 ## Vocabulary
 * succintly: brevemente
