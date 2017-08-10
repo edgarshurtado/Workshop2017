@@ -61,6 +61,13 @@ The interface is the port, and the implementation is de adapter of the port
 
 So each layer will define an interface on how it will use the outter layer
 
+## Dependencies
+
+Hexagonal Architecture espouses a one-way flow of dependencies: From the outside, in.
+
+The outside in dependencies are easy to handler. A web request needs a controller to handle it and so on. The problem comes with the dependencies go from the inside to the outside. For example, our core Domain Needs a database. For these cases, as the Hexagonal architecture always wants to handle dependencies from the outside, in, forces the "Inversion of Control". This is done with the Interfaces to tell the outside layer how will be used in the inner layer.
+
 ## Vocabulary
 * succintly: brevemente
 * blatantly: abiertamente/descaradamente
+* deemed: considerado
