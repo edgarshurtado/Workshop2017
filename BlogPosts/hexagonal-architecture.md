@@ -1,4 +1,4 @@
-# [Hexagonal Architecture](http://fideloper.com/hexagonal-architecture)
+# Hexagonal Architecture
 
 > Hexagonal Architecture is NOT a new way to think about programming within a framework. Instead, if's a way of describing "best practices" - practices that are both old and new
 
@@ -66,6 +66,18 @@ So each layer will define an interface on how it will use the outter layer
 Hexagonal Architecture espouses a one-way flow of dependencies: From the outside, in.
 
 The outside in dependencies are easy to handler. A web request needs a controller to handle it and so on. The problem comes with the dependencies go from the inside to the outside. For example, our core Domain Needs a database. For these cases, as the Hexagonal architecture always wants to handle dependencies from the outside, in, forces the "Inversion of Control". This is done with the Interfaces to tell the outside layer how will be used in the inner layer.
+
+## Drawnbacks of Hexagonal Architecture
+
+* A higher level of complexity
+* The cost of indirection and isolation
+
+## Sources
+
+* [What is Hexagonal Architecture?](http://culttt.com/2014/12/31/hexagonal-architecture/)
+* [Hexagonal Architecture](http://fideloper.com/hexagonal-architecture)
+
+
 
 ## Vocabulary
 * succintly: brevemente
