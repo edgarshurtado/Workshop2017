@@ -235,6 +235,16 @@ ES6 changhes with `let` and `const` its function scope to block scope for variab
 
 `const` has other restrictions. Has to be inizialized right with its definition. Its value can't change afterwards.
 
+The hoisting in `let` and `const` is temporal dead zone. This means that you can access to it ever since it has ben declared. If it has not been assigned any value, it'll return undefined. If we try to access to one variable declared with `let` or `const`, we'd get a `ReferenceError`. [Further reading](https://stackoverflow.com/a/33198850)
+
+`const` forbids being assigned another value, but doesn't makes the value unmutable. For example if we assign an object we can add to it properties. For avoiding this we have to make the object unmutable with `Object.freeze(object)`
+
+# 10. Destructuring
+
+No notes for this chapter. It's all explained through clear examples so just check out the book =).
+
+# 11. Parameter handling
+
 # New vocabulary
 * trademark -> marca registrada
 * inception -> comienzo
@@ -250,3 +260,4 @@ ES6 changhes with `let` and `const` its function scope to block scope for variab
 * clumsy -> torpe/desastrado/patoso
 * coerce -> obligar/forzar
 * clash -> chocar/colisionar
+* shallow -> poco profundo
